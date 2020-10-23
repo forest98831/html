@@ -11,7 +11,7 @@
         <button>搜索</button>
       </div>
       <div class="head-three"></div>
-      <div class="head-four" v-for="item in departmentList" :key="item">
+      <div class="head-four" v-for="(item,index) in departmentList" :key="index">
         <div class="head-four-welcome">
           欢迎您，（{{ item.department }}）{{ item.name }}
         </div>
@@ -27,17 +27,17 @@
 
     <div style="with:1200px;backgroundColor:rgb(234,238,240);">
         <div class="body">
-        <div class="body-left">
+        <div class="body-left" v-for="(item,index) in departmentList" :key="index">
             <div class="body-left-one">
                 <div class="body-left-one-left">
                     <img :src="touxiang" alt="">
                 </div>
-                <div class="body-left-one-right" v-for="item in departmentList" :key="item">
+                <div class="body-left-one-right" >
                     <div class="body-left-one-right-up">{{item.name}}</div>
                     <div class="body-left-one-right-down">{{item.englishName}}</div>
                 </div>
             </div>
-            <div class="body-left-two" v-for="item in departmentList" :key="item">
+            <div class="body-left-two">
                 <div class="body-left-two-left">
                     <div>职务(Duties) :</div>
                     <div>{{item.duties}}</div>
@@ -47,7 +47,7 @@
                     <div>{{item.department}}</div>
                 </div>
             </div>
-            <div class="body-left-three" v-for="(item,index) in tabList" :key="index">
+            <div class="body-left-three" v-for="(item,index) in tabList" :key="index" @click="showItem(item)">
                 <div class="body-left-three-item">
                     <img :src="item.url" alt class="body-left-three-item-img" />
                     {{item.name}}
@@ -69,6 +69,14 @@
                 </div>
             </div>
         </div>
+
+
+
+        <!-- <div class="body-rightzj"> -->
+        <!-- 个人中心组件 -->
+        <!-- <grzx /> -->
+
+        <!-- </div> -->
 
         <div class="body-right">
         <div class="body-right-1">
@@ -126,10 +134,6 @@
           </ul>
         </div>
         <div class="body-right-4"></div>
-
-        <!-- 引入组件 -->
-        <!-- <grzx></grzx>   -->
-
         <div class="body-right-5"></div>
         <div class="body-right-bottom"></div>
       </div>
@@ -169,6 +173,9 @@ export default {
         }
     },
     methods:{
+        showItem(item){
+            console.log(item);
+        },
         currentTime() {
             setInterval(this.formatDate, 500);
         },
@@ -489,6 +496,12 @@ export default {
                 }
             }
         }
+    }
+    &-rightzj{
+        margin: 0 0 0 20px;
+        width: 1080px;
+        border-radius: 10px;
+        background-color: white;
     }
   }
 
