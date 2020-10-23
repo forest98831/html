@@ -126,6 +126,10 @@
           </ul>
         </div>
         <div class="body-right-4"></div>
+
+        <!-- 引入组件 -->
+        <!-- <grzx></grzx>   -->
+
         <div class="body-right-5"></div>
         <div class="body-right-bottom"></div>
       </div>
@@ -136,9 +140,10 @@
 </template>
 
 <script>
+import grzx from "@/components/grzx";
 export default {
     name:'test',
-    components:{},
+    components: { grzx },
     data(){
         return{
             logo:require('@/assets/image/logo.png'),
